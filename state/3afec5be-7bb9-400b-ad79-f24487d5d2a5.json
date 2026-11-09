@@ -1,0 +1,49 @@
+{
+    "run_id": "3afec5be-7bb9-400b-ad79-f24487d5d2a5",
+    "scenario_id": "S6",
+    "messages": [
+        {
+            "role": "system",
+            "content": "AGENT: You are an Instamart refund agent. Use tools to verify orders, check policies, calculate refunds, and process or escalate refunds."
+        },
+        {
+            "role": "user",
+            "content": "Refund for order ORD-999999 please."
+        },
+        {
+            "role": "assistant",
+            "content": null,
+            "tool_calls": [
+                {
+                    "id": "call_1",
+                    "name": "get_order",
+                    "arguments": {
+                        "order_id": "ORD-999999"
+                    }
+                }
+            ]
+        },
+        {
+            "role": "tool",
+            "tool_call_id": "call_1",
+            "name": "get_order",
+            "content": "{\"error\": \"order not found\"}"
+        }
+    ],
+    "tokens_used": 45,
+    "steps": [
+        {
+            "tool": "get_order",
+            "arguments": {
+                "order_id": "ORD-999999"
+            },
+            "observation": {
+                "error": "order not found"
+            }
+        }
+    ],
+    "tools_executed": [
+        "get_order"
+    ],
+    "step_number": 1
+}
